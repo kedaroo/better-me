@@ -28,11 +28,11 @@
 
 .signin .wrapper button {
   margin-top: 2rem;
-  border: 1px solid gray;
+  border: 2px solid rgb(0, 0, 0);
   padding: 0.75rem 1.5rem;
   font-size: 1.1rem;
   background-color: transparent;
-  color: white;
+  color: rgb(0, 0, 0);
   display: flex;
   align-items: center;
   margin: 2rem auto 0 auto;
