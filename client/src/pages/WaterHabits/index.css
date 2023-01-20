@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+}
+
+.container > main {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.container > aside {
+  width: 260px;
+  border-left: 1px solid black;
+  height: 100vh;
+  padding: 0.75rem;
+  overflow: auto;
+}
+
+.card-container {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.fft-container {
+  display: flex;
+}
+
+/* 
+@media (max-width: 1400px) {
+  .roadmaps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 950px) {
+  .roadmaps-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .roadmap-card {
+    padding: 0.5rem;
+  }
+} */
