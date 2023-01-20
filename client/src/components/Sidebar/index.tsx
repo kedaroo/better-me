@@ -6,8 +6,11 @@ import HomeIcon from "../../assets/sidebar/HomeIcon.png";
 import SleepIcon from "../../assets/sidebar/SleepIcon.png";
 import WaterIcon from "../../assets/sidebar/WaterIcon.png";
 import SignoutIcon from "../../assets/sidebar/SignoutIcon.png";
+import { useLogout } from "../../hooks/useLogout";
 
 const Sidebar = () => {
+  const { logout, isPending } = useLogout();
+
   return (
     <div className="sidebar">
       <div className="link-wrapper">
@@ -28,7 +31,7 @@ const Sidebar = () => {
             <img src={BreakIcon} alt="" />
             <Link to="/BreakHabits">Break Habits</Link>
           </li>
-          <li>
+          <li onClick={logout}>
             <img src={SignoutIcon} alt="" />
             <button>Sign out</button>
           </li>
