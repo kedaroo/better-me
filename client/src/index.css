@@ -1,70 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css");
+
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+  --ff-serif: "Poppins", sans-serif;
+  --ff-mono: "Space Mono", monospace;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* colors */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  --clr-dark: #120e26;
+
+  --clr-primary: #6d28d9;
+  --clr-primary-dark: #5b21b6;
+  --clr-primary-light: #ddd6fe;
+
+  --clr-secondary: rgb(163, 168, 195);
+  --clr-secondary-dark: #374151;
+  --clr-secondary-light: #e5e7eb;
+
+  --clr-green: #16a34a;
+  --clr-green-dark: #15803d;
+  --clr-green-light: #90ee8a;
+
+  --clr-yellow: #eab308;
+  --clr-yellow-dark: #a16207;
+  --clr-yellow-light: #fef08a;
+
+  --clr-red: #dc2626;
+  --clr-red-dark: #b91c1c;
+  --clr-red-light: #ffcdce;
+
+  --clr-blue: #60a5fa;
+  --clr-blue-dark: #1d4ed8;
+  --clr-blue-light: #bfdbfe;
+
+  --clr-gray-light: #f3f4f6;
+  --clr-dark-gray: #374151;
+  --clr-gray-opacity: rgb(243, 244, 246, 0.5);
+
+  --content: 83, 83, 83;
+
+  /* box shadow */
+  --bs-gray: 0px 3px 18px -5px #d1d5db;
+  --bs-gray-dark: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
-a:hover {
-  color: #535bf2;
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h5,
+p {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
+  font-family: var(--ff-serif);
+  background-color: var(--clr-dark);
+  color: white;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+img,
+video,
+iframe {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, for users who have turned them off */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.card {
+  border: 1px solid var(--clr-primary);
+  border-radius: 5px;
+  padding: 2rem 1rem;
+  background-image: linear-gradient(
+    to right,
+    rgb(var(--content), 0),
+    rgb(var(--content), 0.1)
+  );
+  border: 2px solid rgb(30, 224, 224, 0.2);
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.checkbox-container,
+.radio-container {
+  position: relative;
+  padding-left: 2rem;
+  cursor: pointer;
+}
+
+.checkbox-container .form-control[type="checkbox"],
+.radio-container .form-control[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-container .checkbox-custom,
+.radio-container .radio-custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: var(--clr-secondary-light);
+  transition: 0.3s background-color;
+}
+
+.radio-container .radio-custom {
+  border-radius: 50%;
+}
+
+.checkbox-container .checkbox-custom:after,
+.radio-container .radio-custom:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container .checkbox-custom:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.radio-container .radio-custom:after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.checkbox-container:hover .checkbox-custom,
+.radio-container:hover .radio-custom {
+  background-color: gray;
+}
+
+.checkbox-container .form-control[type="checkbox"]:checked ~ .checkbox-custom,
+.radio-container .form-control[type="radio"]:checked ~ .radio-custom {
+  background-color: var(--clr-primary);
+}
+
+.checkbox-container
+  .form-control[type="checkbox"]:checked
+  ~ .checkbox-custom:after,
+.radio-container .form-control[type="radio"]:checked ~ .radio-custom:after {
+  display: block;
+}
+
+button:disabled {
+  opacity: 0.5;
 }
