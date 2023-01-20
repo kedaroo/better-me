@@ -14,6 +14,7 @@
     "express",
     "hackathon"
   ],
+  "type": "module",
   "author": "Siddhi Gate, Kedar Basutkar",
   "license": "ISC",
   "bugs": {
