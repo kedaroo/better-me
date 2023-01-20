@@ -1,0 +1,35 @@
+{
+  "name": "better-me-server",
+  "version": "1.0.0",
+  "description": "Server for BetterMe App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kedaroo/better-me.git#main"
+  },
+  "keywords": [
+    "express",
+    "hackathon"
+  ],
+  "type": "module",
+  "author": "Siddhi Gate, Kedar Basutkar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kedaroo/better-me/issues"
+  },
+  "homepage": "https://github.com/kedaroo/better-me/tree/main#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "firebase-admin": "^11.5.0",
+    "mongoose": "^6.8.4",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
