@@ -12,7 +12,7 @@ const Sidebar = () => {
   const { logout, isPending } = useLogout();
 
   return (
-    <div className="sidebar">
+    <div className="sidebar a">
       <div className="link-wrapper">
         <ul>
           <li>
