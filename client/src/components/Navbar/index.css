@@ -1,0 +1,15 @@
+.primary-nav {
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid rgb(163, 168, 195, 0.3);
+  font-weight: bold;
+}
+
+.primary-nav > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.primary-nav img {
+  width: 2.5rem;
+}
