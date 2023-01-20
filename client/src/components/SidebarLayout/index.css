@@ -4,15 +4,10 @@
 }
 
 .sidebar-layout > div {
-  width: 280px;
-  border-right: 1px solid rgb(163, 168, 195, 0.2);
+  width: 240px;
+  border-right: 1px solid rgb(0, 0, 0);
 }
 
 .sidebar-layout > main {
   flex-grow: 1;
-  padding: 2rem;
-}
-
-.sidebar-layout > main h1 {
-  margin-top: 1rem;
 }

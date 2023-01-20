@@ -1,0 +1,7 @@
+.fft-item {
+  border: 1px solid;
+  width: 200px;
+  border-radius: 12px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}

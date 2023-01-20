@@ -7,7 +7,8 @@
 
   /* colors */
 
-  --clr-dark: #120e26;
+  --clr-dark: #ffffff;
+  --clr-font: #000000;
 
   --clr-primary: #6d28d9;
   --clr-primary-dark: #5b21b6;
@@ -70,7 +71,7 @@ body {
   min-height: 100vh;
   font-family: var(--ff-serif);
   background-color: var(--clr-dark);
-  color: white;
+  color: var(--clr-font);
 }
 
 img,

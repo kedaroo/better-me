@@ -1,0 +1,19 @@
+.log-card {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+.log-left-con {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.log-card img {
+  width: 1.5rem;
+}
