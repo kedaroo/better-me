@@ -1,0 +1,28 @@
+.mycard {
+  flex: 1;
+  border: 1px solid black;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  gap: 1rem;
+}
+
+.mycard > .title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.mycard input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 60px;
+  margin-right: 1rem;
+  color: inherit;
+  text-align: center;
+}
