@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SidebarLayout from "../../components/SidebarLayout";
 import Tick from "../../assets/tick.png";
 import Cross from "../../assets/cross.png";
@@ -6,8 +6,44 @@ import "./index.css";
 import Card from "../../components/Card";
 import FoodForThoughtItem from "../../components/FoodForThoughtItem";
 import LogCard from "../../components/LogCard";
+import api from "../../api";
+import { AuthContextProvider } from "../../context/AuthContext";
+import { useAuthContext } from "../../hooks/useAuthContext";
+
+interface Log {
+  activity: string;
+  timestamp: string;
+  _id: string;
+}
 
 const BreakHabits = () => {
+  const [reminder, setReminder] = useState<number>(0);
+  const [logs, setLogs] = useState<Array<Log>>([]);
+  const { user } = useAuthContext();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await api.get("breakhabit/user", {
+        headers: { Authorization: await user.getIdToken() },
+      });
+
+      setReminder(res.data.data.reminderInterval);
+      setLogs(res.data.data.logs);
+    };
+
+    fetchData();
+  }, [user]);
+
+  const handleReminderChange = async (e: any) => {
+    setReminder(parseFloat(e.target.value));
+
+    const res = await api.patch(
+      "breakhabit/user",
+      { reminderInterval: e.target.value },
+      { headers: { Authorization: await user.getIdToken() } }
+    );
+  };
+
   return (
     <SidebarLayout>
       <div className="container">
@@ -16,7 +52,13 @@ const BreakHabits = () => {
           <h3>Take the breaks you need, work more effectively</h3>
           <div className="card-container">
             <Card title="Reminders" goal="Remind me to take breaks">
-              every <input type="number" min={1} />
+              every{" "}
+              <input
+                type="number"
+                value={reminder}
+                onChange={handleReminderChange}
+                min={1}
+              />
               hours
             </Card>
             <div className="mycard">
@@ -47,8 +89,15 @@ const BreakHabits = () => {
 
         <aside>
           <h2>Break Logs</h2>
-          {/* <LogCard leftText="1 Jan" rightText="3 breaks" />
-          <LogCard leftText="2 Jan" rightText="2 breaks" /> */}
+          {logs &&
+            logs.map((logItem) => (
+              <LogCard
+                key={logItem._id}
+                icon={Tick}
+                leftText={new Date(logItem.timestamp).toDateString()}
+                rightText={logItem.activity}
+              />
+            ))}
         </aside>
       </div>
     </SidebarLayout>
