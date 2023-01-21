@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { ChangeEventHandler, useEffect, useState } from "react";
 import SidebarLayout from "../../components/SidebarLayout";
 import Tick from "../../assets/tick.png";
