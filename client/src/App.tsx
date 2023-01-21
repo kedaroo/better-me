@@ -8,14 +8,74 @@ import SleepHabits from "./pages/SleepHabits";
 import WaterHabits from "./pages/WaterHabits";
 import WaterLogForm from "./pages/WaterHabits/WaterLogForm";
 import { useAuthContext } from "./hooks/useAuthContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import api from "./api";
+import { spawnNotification } from "./helpers/notifications";
 
 function App() {
-  const { user, authIsReady } = useAuthContext();
+  // @ts-ignore
+  const { user, authIsReady, dispatch } = useAuthContext();
+  const [appUser, setAppUser] = useState(null);
+  const [waterHabits, setWaterHabits] = useState(null);
+  const [sleepHabits, setSleepHabits] = useState(null);
+  const [breakHabits, setBreakHabits] = useState(null);
 
   useEffect(() => {
+    Notification.requestPermission().then((result) => {});
+
     navigator.serviceWorker.register("sw.js");
-  }, [])
+
+    const fetchData = async () => {
+      const res = await api.get("user/stats", {
+        headers: { Authorization: await user.getIdToken() },
+      });
+
+      setAppUser(res.data.user);
+      setBreakHabits(res.data.breakHabits.data);
+      setSleepHabits(res.data.sleepHabits.data);
+      setWaterHabits(res.data.waterHabits.data);
+
+      console.log(res.data.waterHabits.data);
+    };
+
+    user && fetchData();
+  }, [user]);
+
+  const handleStartNotifications = () => {
+    console.log(
+      `Water notifications registered for ${
+        waterHabits.reminderInterval * 60 * 60
+      } secs`
+    );
+    const waterNotifications = setInterval(
+      () =>
+        spawnNotification(
+          "Time to hydrate yourself!",
+          "Water Break!",
+          "http://localhost:5173/WaterHabits/addLog"
+        ),
+      waterHabits.reminderInterval * 60 * 60
+    );
+
+    console.log(
+      `Break notifications registered for ${
+        breakHabits.reminderInterval * 60 * 60
+      } secs`
+    );
+    const breakNotifications = setInterval(() => {
+      spawnNotification(
+        "Unwind from your work and relax!",
+        "Break time!",
+        "http://localhost:5173/BreakHabits/addBreak"
+      );
+    }, breakHabits.reminderInterval * 60 * 60);
+
+    console.log([waterNotifications, breakNotifications]);
+    dispatch({
+      type: "NOTIFICATION_INTERVALS",
+      payload: [waterNotifications, breakNotifications],
+    });
+  };
 
   return (
     <>
@@ -26,7 +86,22 @@ function App() {
             path="/signin"
             element={user ? <Navigate to="/home" /> : <Signin />}
           />
-          <Route path="/home" element={user ? <Home /> : <Navigate to="/" />} />
+          <Route
+            path="/home"
+            element={
+              user ? (
+                <Home
+                  handleStartNotification={handleStartNotifications}
+                  appUser={appUser}
+                  breakHabits={breakHabits}
+                  sleepHabits={sleepHabits}
+                  waterHabits={waterHabits}
+                />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
           <Route
             path="/BreakHabits"
             element={user ? <BreakHabits /> : <Navigate to="/" />}

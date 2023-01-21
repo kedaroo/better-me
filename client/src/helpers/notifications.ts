@@ -1,3 +1,4 @@
+// TODO add icons to notifications
 export function spawnNotification(
   theBody = "notification",
   // theIcon = "../assets/logo.png",
@@ -8,9 +9,9 @@ export function spawnNotification(
     body: theBody,
     // icon: theIcon,
   };
-  console.log("here")
+
   var notification = new Notification(theTitle, options);
-  
+
   notification.onclick = function (event) {
     event.preventDefault(); // prevent the browser from focusing the Notification's tab
     window.open(theLink, "_blank");
