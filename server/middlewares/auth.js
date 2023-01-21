@@ -8,13 +8,10 @@ export const isAuthorized = async (req, res, next) => {
     const token = req.headers.authorization?.replace("Bearer ", "");
     const decodedToken = await admin.auth().verifyIdToken(token);
 
-    console.log(decodedToken)
-
     if (decodedToken) {
       const user = await userService.findByEmailOrCreateIfNotFound(
         decodedToken
       );
-      console.log(user);
       req.user = user;
       return next();
     }
