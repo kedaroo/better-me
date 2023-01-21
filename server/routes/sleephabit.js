@@ -1,11 +1,11 @@
 import SleephabitController from "../controllers/SleephabitController.js";
 import express from "express";
+import { isAuthorized } from "../middlewares/auth.js";
 const router = express.Router();
 
-router
-  .route("/")
-  .get(SleephabitController.getAll)
-  .post(SleephabitController.insert);
+router.route("/user")
+    .get(isAuthorized, SleephabitController.getByUserId)
+    .patch(isAuthorized, SleephabitController.updateByUserId)
 
 router
   .route("/:id")

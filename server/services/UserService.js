@@ -30,9 +30,10 @@ class UserService extends Service {
 
       if (!item) {
         item = await this.insert(data);
-        await waterhabitService.insert({ userId: item._id });
-        await sleephabitService.insert({ userId: item._id });
-        await breakhabitService.insert({ userId: item._id });
+
+        await waterhabitService.insert({ userId: item.data._id });
+        await sleephabitService.insert({ userId: item.data._id });
+        await breakhabitService.insert({ userId: item.data._id });
       }
 
       return item;
