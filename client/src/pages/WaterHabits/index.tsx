@@ -38,7 +38,7 @@ const WaterHabits = () => {
   }, [user]);
 
   const handleDailyGoalChange = async (e: any) => {
-    setGoal(parseInt(e.target.value));
+    setGoal(parseFloat(e.target.value));
     const res = await api.patch(
       "waterhabit/user",
       { goal: e.target.value },
@@ -49,7 +49,7 @@ const WaterHabits = () => {
   };
 
   const handleReminderChange = async (e: any) => {
-    setReminderInterval(parseInt(e.target.value));
+    setReminderInterval(parseFloat(e.target.value));
     const res = await api.patch(
       "waterhabit/user",
       { reminderInterval: e.target.value },
@@ -113,7 +113,7 @@ const WaterHabits = () => {
                 key={logItem._id}
                 icon={Tick}
                 leftText={new Date(logItem.timestamp).toDateString()}
-                rightText={logItem.waterQuantity}
+                rightText={`${logItem.waterQuantity.toString()} L`}
               />
             ))}
         </aside>
