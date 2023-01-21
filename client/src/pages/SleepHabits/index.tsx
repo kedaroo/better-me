@@ -44,8 +44,8 @@ const SleepHabits = () => {
 
         <aside>
           <h2>Sleep Quality Logs</h2>
-          <LogCard icon={Tick} leftText="1 Jan" rightText="3 ⭐" />
-          <LogCard icon={Cross} leftText="2 Jan" rightText="2 ⭐" />
+          {/* <LogCard icon={Tick} leftText="1 Jan" rightText="3 ⭐" />
+          <LogCard icon={Cross} leftText="2 Jan" rightText="2 ⭐" /> */}
         </aside>
       </div>
     </SidebarLayout>
