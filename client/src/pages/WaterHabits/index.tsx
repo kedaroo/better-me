@@ -27,8 +27,6 @@ const WaterHabits = () => {
         headers: { Authorization: await user?.getIdToken() },
       });
 
-      console.log(res.data.data);
-
       setGoal(res.data.data.goal.toString());
       setReminderInterval(res.data.data.reminderInterval.toString());
       setLogs(res.data.data.logs);
