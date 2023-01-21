@@ -1,28 +1,20 @@
-export const notify = (url: any) => {
-  Notification.requestPermission(function (result) {
-    if (result === "granted") {
-      navigator.serviceWorker.ready.then(function (registration) {
-        console.log(registration)
-        registration.showNotification("Exercise Time", {
-          body: "Look away from the screen",
-          icon: "./assets/logo.png",
-          data: url,
-          vibrate: [200, 100, 200, 100, 200, 100, 200],
-          tag: "Exercise Reminder",
-          requireInteraction: true,
-          actions: [
-            {
-              action: "exercise-action",
-              title: "Do exercise",
-            },
-          ],
-        });
-      });
-    }
-  });
+export function spawnNotification(
+  theBody = "notification",
+  // theIcon = "../assets/logo.png",
+  theTitle = "TITLE",
+  theLink = "https://siddhigate.vercel.app"
+) {
+  var options = {
+    body: theBody,
+    // icon: theIcon,
+  };
+  console.log("here")
+  var notification = new Notification(theTitle, options);
+  
+  notification.onclick = function (event) {
+    event.preventDefault(); // prevent the browser from focusing the Notification's tab
+    window.open(theLink, "_blank");
+  };
 
-  const audio = new Audio(
-    "https://soundbible.com/mp3/service-bell_daniel_simion.mp3"
-  );
-  audio.play();
-};
+  setTimeout(notification.close.bind(notification), 7000);
+}

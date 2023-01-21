@@ -1,12 +1,12 @@
 import React from "react";
 import SidebarLayout from "../../components/SidebarLayout";
-import { notify } from "../../helpers/notifications";
+import { spawnNotification } from "../../helpers/notifications";
 
 const Home = () => {
   return (
     <SidebarLayout>
       <div>Home</div>
-      <button onClick={notify}>Notify</button>
+      <button onClick={() => spawnNotification()}>Notify</button>
     </SidebarLayout>
   );
 };
