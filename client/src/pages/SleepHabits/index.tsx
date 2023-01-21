@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import SidebarLayout from "../../components/SidebarLayout";
 import Tick from "../../assets/tick.png";
+import HappyFace from "../../assets/sleepHabits/happy.png";
+import SadFace from "../../assets/sleepHabits/sad.png";
+import AverageFace from "../../assets/sleepHabits/average.png";
 import Cross from "../../assets/cross.png";
 import "./index.css";
 import Card from "../../components/Card";
@@ -9,6 +12,8 @@ import LogCard from "../../components/LogCard";
 import api from "../../api";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import FoodForThought from "../../components/FoodForThought";
+import Modal from "../../components/Modal";
+import { Rating } from "react-simple-star-rating";
 
 interface Log {
   quality: number;
@@ -20,6 +25,8 @@ const SleepHabits = () => {
   const [goal, setGoal] = useState<number>(0);
   const [reminder, setReminder] = useState<string>("");
   const [logs, setLogs] = useState<Array<Log>>([]);
+  const [showModal, setShowModal] = useState<boolean>(true);
+  const [rating, setRating] = useState<number>(0);
   const { user } = useAuthContext();
 
   useEffect(() => {
@@ -31,6 +38,14 @@ const SleepHabits = () => {
       setGoal(res.data.data.goal);
       setReminder(res.data.data.reminderTime);
       setLogs(res.data.data.logs);
+      for (let i = res.data.data.logs.length - 1; i >= 0; i--) {
+        if (
+          new Date(res.data.data.logs[i].timestamp).toLocaleDateString() ===
+          new Date(Date.now()).toLocaleDateString()
+        ) {
+          setShowModal(false);
+        }
+      }
     };
 
     fetchData();
@@ -46,12 +61,35 @@ const SleepHabits = () => {
     );
   };
 
+  const decideFaceMood = (quality: number) => {
+    if (quality < 3) {
+      return SadFace;
+    } else if (quality === 3) {
+      return AverageFace;
+    } else {
+      return HappyFace;
+    }
+  };
+
   const handleReminderChange = async (e: any) => {
     setReminder(e.target.value);
 
     const res = await api.patch(
       "sleephabit/user",
       { reminderTime: e.target.value },
+      { headers: { Authorization: await user.getIdToken() } }
+    );
+  };
+
+  const handleRating = (rate: number) => {
+    setRating(rate);
+  };
+
+  const handleCloseModal = async () => {
+    setShowModal(false);
+    await api.patch(
+      "sleephabit/addlog",
+      { quality: rating },
       { headers: { Authorization: await user.getIdToken() } }
     );
   };
@@ -82,9 +120,7 @@ const SleepHabits = () => {
             </Card>
           </div>
 
-          
-          <FoodForThought category="sleepingHabits"/>
-
+          <FoodForThought category="sleepingHabits" />
         </main>
 
         <aside>
@@ -94,13 +130,33 @@ const SleepHabits = () => {
             logs.map((logItem) => (
               <LogCard
                 key={logItem._id}
-                icon={Tick}
+                icon={decideFaceMood(logItem.quality)}
                 leftText={new Date(logItem.timestamp).toDateString()}
                 rightText={`${logItem.quality} ⭐`}
               />
             ))}
         </aside>
       </div>
+
+      {showModal && (
+        <Modal closeModal={handleCloseModal}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "1.75rem",
+              padding: "1rem 0",
+            }}
+          >
+            <h1>Hey {user.displayName} 👋</h1>
+            <div style={{ fontWeight: 600, fontSize: "1.5rem" }}>
+              How well did you sleep?
+            </div>
+            <Rating onClick={handleRating} transition={true} size={60} />
+            <button onClick={handleCloseModal}>Submit</button>
+          </div>
+        </Modal>
+      )}
     </SidebarLayout>
   );
 };
