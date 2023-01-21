@@ -5,6 +5,8 @@ const router = express.Router();
 
 router.route("/login").get(isAuthorized, UserContoller.login);
 
+router.route("/stats").get(isAuthorized, UserContoller.getStats);
+
 router.route("/").get(UserContoller.getAll).post(UserContoller.insert);
 
 router

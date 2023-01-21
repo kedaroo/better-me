@@ -41,6 +41,21 @@ class UserService extends Service {
       throw error;
     }
   }
+
+  
+  async getStats(userId) {
+    try {
+      const user = await this.model.findById(userId);
+
+      const waterHabits =  await waterhabitService.getByUserId(userId);
+      const sleepHabits =  await sleephabitService.getByUserId(userId);
+      const breakHabits =  await breakhabitService.getByUserId(userId);
+      
+      return {user, waterHabits, sleepHabits, breakHabits};
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 export default UserService;

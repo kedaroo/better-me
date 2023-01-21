@@ -22,6 +22,21 @@ class UserController extends Controller {
       return res.status(400).json({ error: true, data: null });
     }
   }
+
+  async getStats(req, res) {
+    
+    const userId = req.user._id;
+
+    try {
+      const response = await this.service.getStats(userId);
+
+      return res.status(200).json(response);
+    } catch (e) {
+      return res
+        .status(e.statusCode || 500)
+        .json({ error: true, message: e.message || "Something went wrong" });
+    }
+  }
 }
 
 export default new UserController(user);
