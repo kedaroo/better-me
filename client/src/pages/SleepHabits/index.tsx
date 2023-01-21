@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import SidebarLayout from "../../components/SidebarLayout";
-import Tick from "../../assets/tick.png";
 import HappyFace from "../../assets/sleepHabits/happy.png";
 import SadFace from "../../assets/sleepHabits/sad.png";
 import AverageFace from "../../assets/sleepHabits/average.png";
-import Cross from "../../assets/cross.png";
 import "./index.css";
 import Card from "../../components/Card";
-import FoodForThoughtItem from "../../components/FoodForThoughtItem";
 import LogCard from "../../components/LogCard";
 import api from "../../api";
 import { useAuthContext } from "../../hooks/useAuthContext";
