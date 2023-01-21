@@ -1,6 +1,7 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import BreakHabits from "./pages/BreakHabits";
+import BreakLogForm from "./pages/BreakHabits/BreakLogForm";
 import Landing from "./pages/Landing";
 import Signin from "./pages/Signin";
 import SleepHabits from "./pages/SleepHabits";
@@ -23,6 +24,10 @@ function App() {
           <Route
             path="/BreakHabits"
             element={user ? <BreakHabits /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/BreakHabits/addBreak"
+            element={user ? <BreakLogForm /> : <Navigate to="/" />}
           />
           <Route
             path="/SleepHabits"
