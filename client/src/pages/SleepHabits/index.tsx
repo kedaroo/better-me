@@ -11,6 +11,7 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 import FoodForThought from "../../components/FoodForThought";
 import Modal from "../../components/Modal";
 import { Rating } from "react-simple-star-rating";
+import { prettifyDate } from "../../helpers/prettifyDate";
 
 interface Log {
   quality: number;
@@ -128,7 +129,7 @@ const SleepHabits = () => {
               <LogCard
                 key={logItem._id}
                 icon={decideFaceMood(logItem.quality)}
-                leftText={new Date(logItem.timestamp).toDateString()}
+                leftText={prettifyDate(logItem.timestamp)}
                 rightText={`${logItem.quality} ⭐`}
               />
             ))}

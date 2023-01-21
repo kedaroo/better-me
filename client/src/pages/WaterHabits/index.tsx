@@ -8,6 +8,7 @@ import LogCard from "../../components/LogCard";
 import api from "../../api";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import FoodForThought from "../../components/FoodForThought";
+import { prettifyDate } from "../../helpers/prettifyDate";
 
 interface Log {
   waterQuantity: number;
@@ -97,7 +98,7 @@ const WaterHabits = () => {
               <LogCard
                 key={logItem._id}
                 icon={Tick}
-                leftText={new Date(logItem.timestamp).toDateString()}
+                leftText={prettifyDate(logItem.timestamp)}
                 rightText={`${logItem.waterQuantity.toString()} L`}
               />
             ))}

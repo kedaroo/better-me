@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import SidebarLayout from "../../components/SidebarLayout";
-import Tick from "../../assets/tick.png";
-import Cross from "../../assets/cross.png";
 import "./index.css";
 import Card from "../../components/Card";
 import LogCard from "../../components/LogCard";
@@ -12,6 +10,7 @@ import MeditationIcon from "../../assets/breakHabits/meditation.png";
 import MusicIcon from "../../assets/breakHabits/music.png";
 import WalkingIcon from "../../assets/breakHabits/walking.png";
 import OtherIcon from "../../assets/breakHabits/other.png";
+import { prettifyDate } from "../../helpers/prettifyDate";
 
 interface Log {
   activity: string;
@@ -98,7 +97,7 @@ const BreakHabits = () => {
               <LogCard
                 key={logItem._id}
                 icon={decideActivityIcon(logItem.activity)}
-                leftText={new Date(logItem.timestamp).toDateString()}
+                leftText={prettifyDate(logItem.timestamp)}
                 rightText={logItem.activity}
               />
             ))}
