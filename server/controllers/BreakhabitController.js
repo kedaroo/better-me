@@ -1,6 +1,6 @@
-import Controller from "./Controller";
-import BreakhabitService from "../services/BreakhabitService";
-import Breakhabit from "../models/breakhabit";
+import Controller from "./Controller.js";
+import BreakhabitService from "../services/BreakhabitService.js";
+import Breakhabit from "../models/breakhabit.js";
 import autoBind from "auto-bind";
 
 const breakhabitService = new BreakhabitService(Breakhabit);

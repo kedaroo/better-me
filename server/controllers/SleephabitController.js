@@ -1,6 +1,6 @@
-import Controller from "./Controller";
-import SleephabitService from "../services/SleephabitService";
-import Sleephabit from "../models/sleephabit";
+import Controller from "./Controller.js";
+import SleephabitService from "../services/SleephabitService.js";
+import Sleephabit from "../models/sleephabit.js";
 import autoBind from "auto-bind";
 
 const sleephabitService = new SleephabitService(Sleephabit);

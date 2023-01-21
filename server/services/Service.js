@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import autoBind from "auto-bind";
-import HttpResponse from "../helpers/HttpResponse";
+import HttpResponse from "../helpers/HttpResponse.js";
 
 class Service {
   constructor(model) {

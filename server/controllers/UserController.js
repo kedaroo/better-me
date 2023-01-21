@@ -1,6 +1,6 @@
-import Controller from "./Controller";
-import UserService from "../services/UserService";
-import User from "../models/user";
+import Controller from "./Controller.js";
+import UserService from "../services/UserService.js";
+import User from "../models/user.js";
 import autoBind from "auto-bind";
 
 const user = new UserService(User);

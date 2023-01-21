@@ -1,6 +1,6 @@
-import Controller from "./Controller";
-import WaterhabitService from "../services/WaterhabitService";
-import Waterhabit from "../models/waterhabit";
+import Controller from "./Controller.js";
+import WaterhabitService from "../services/WaterhabitService.js";
+import Waterhabit from "../models/waterhabit.js";
 import autoBind from "auto-bind";
 
 const waterhabitService = new WaterhabitService(Waterhabit);
