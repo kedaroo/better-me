@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { ChangeEventHandler, useEffect, useState } from "react";
 import SidebarLayout from "../../components/SidebarLayout";
 import Tick from "../../assets/tick.png";
@@ -17,8 +16,8 @@ interface Log {
 }
 
 const WaterHabits = () => {
-  const [goal, setGoal] = useState<string>("0");
-  const [reminderInterval, setReminderInterval] = useState<string>("0");
+  const [goal, setGoal] = useState<number>(0);
+  const [reminderInterval, setReminderInterval] = useState<number>(0);
   const [logs, setLogs] = useState<Array<Log>>([]);
   const { user } = useAuthContext();
 
@@ -27,6 +26,8 @@ const WaterHabits = () => {
       const res = await api.get("waterhabit/user", {
         headers: { Authorization: await user?.getIdToken() },
       });
+
+      console.log(res.data.data);
 
       setGoal(res.data.data.goal.toString());
       setReminderInterval(res.data.data.reminderInterval.toString());
@@ -37,7 +38,7 @@ const WaterHabits = () => {
   }, [user]);
 
   const handleDailyGoalChange = async (e: any) => {
-    setGoal(e.target.value);
+    setGoal(parseInt(e.target.value));
     const res = await api.patch(
       "waterhabit/user",
       { goal: e.target.value },
@@ -48,7 +49,7 @@ const WaterHabits = () => {
   };
 
   const handleReminderChange = async (e: any) => {
-    setReminderInterval(e.target.value);
+    setReminderInterval(parseInt(e.target.value));
     const res = await api.patch(
       "waterhabit/user",
       { reminderInterval: e.target.value },
