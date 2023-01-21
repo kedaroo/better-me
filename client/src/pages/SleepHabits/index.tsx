@@ -8,6 +8,7 @@ import FoodForThoughtItem from "../../components/FoodForThoughtItem";
 import LogCard from "../../components/LogCard";
 import api from "../../api";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import FoodForThought from "../../components/FoodForThought";
 
 interface Log {
   quality: number;
@@ -81,22 +82,9 @@ const SleepHabits = () => {
             </Card>
           </div>
 
-          {/* TODO: Make horizontally scrollable */}
-          <h3>Food for thought</h3>
-          <div className="fft-container">
-            <FoodForThoughtItem>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-              commodi eum rerum neque ut explicabo repudiandae nam earum.
-            </FoodForThoughtItem>
-            <FoodForThoughtItem>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-              commodi eum rerum neque ut explicabo repudiandae nam earum.
-            </FoodForThoughtItem>
-            <FoodForThoughtItem>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-              commodi eum rerum neque ut explicabo repudiandae nam earum.
-            </FoodForThoughtItem>
-          </div>
+          
+          <FoodForThought category="sleepingHabits"/>
+
         </main>
 
         <aside>
