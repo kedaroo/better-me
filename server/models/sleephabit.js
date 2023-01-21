@@ -9,9 +9,12 @@ const schema = new mongoose.Schema({
   reminderTime: Date,
   logs: [
     {
-        timestamp: Date,
-        quality: Number,
-    }
+      timestamp: {
+        type: Date,
+        default: Date.now,
+      },
+      quality: Number,
+    },
   ],
   createdAt: {
     type: Date,
