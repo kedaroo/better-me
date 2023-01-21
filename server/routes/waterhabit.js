@@ -1,10 +1,11 @@
 import WaterhabitController from "../controllers/WaterhabitController.js";
 import express from "express";
+import { isAuthorized } from "../middlewares/auth.js";
 const router = express.Router();
 
-router.route("/")
-    .get(WaterhabitController.getAll)
-    .post(WaterhabitController.insert);
+router.route("/user")
+    .get(isAuthorized, WaterhabitController.getByUserId)
+    .patch(isAuthorized, WaterhabitController.updateByUserId)
 
 router
   .route("/:id")
