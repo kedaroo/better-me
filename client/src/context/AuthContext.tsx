@@ -6,17 +6,20 @@ import React from "react";
 interface State {
   user: User | null;
   authIsReady: boolean;
+  notificationIntervals: NodeJS.Timer[];
 }
 
 export const AuthContext = createContext<State>({
   user: null,
   authIsReady: false,
+  notificationIntervals: [],
 });
 
 type ACTIONTYPE =
   | { type: "LOGIN"; payload: User }
   | { type: "LOGOUT" }
-  | { type: "AUTH_IS_READY"; payload: User };
+  | { type: "AUTH_IS_READY"; payload: User }
+  | { type: "NOTIFICATION_INTERVALS"; payload: NodeJS.Timer[] };
 
 export const authReducer = (state: State, action: ACTIONTYPE) => {
   switch (action.type) {
@@ -26,6 +29,8 @@ export const authReducer = (state: State, action: ACTIONTYPE) => {
       return { ...state, user: null };
     case "AUTH_IS_READY":
       return { user: action.payload, authIsReady: true };
+    case "NOTIFICATION_INTERVALS":
+      return { ...state, notificationIntervals: action.payload };
     default:
       return state;
   }
@@ -39,6 +44,7 @@ export const AuthContextProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(authReducer, {
     user: null,
     authIsReady: false,
+    notificationIntervals: [],
   });
 
   useEffect(() => {
