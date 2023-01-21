@@ -6,7 +6,7 @@ const schema = new mongoose.Schema({
     ref: "User",
   },
   goal: Number,
-  reminderTime: Date,
+  reminderTime: String,
   logs: [
     {
       timestamp: {
