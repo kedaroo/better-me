@@ -9,10 +9,10 @@ router.route("/user")
 
 router.route("/addlog").patch(isAuthorized, WaterhabitController.addLog)
 
-router
-  .route("/:id")
-  .get(WaterhabitController.get)
-  .put(WaterhabitController.update)
-  .delete(WaterhabitController.delete);
+// router
+//   .route("/:id")
+//   .get(WaterhabitController.get)
+//   .put(WaterhabitController.update)
+//   .delete(WaterhabitController.delete);
 
 export default router;

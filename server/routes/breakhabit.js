@@ -10,10 +10,10 @@ router
 
 router.route("/addlog").patch(isAuthorized, BreakhabitController.addLog)
 
-router
-  .route("/:id")
-  .get(BreakhabitController.get)
-  .put(BreakhabitController.update)
-  .delete(BreakhabitController.delete);
+// router
+//   .route("/:id")
+//   .get(BreakhabitController.get)
+//   .put(BreakhabitController.update)
+//   .delete(BreakhabitController.delete);
 
 export default router;
