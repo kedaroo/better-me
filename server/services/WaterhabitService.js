@@ -34,6 +34,20 @@ class WaterhabitService extends Service {
     }
   }
 
+  async addLog(userId, data) {
+    try {
+      const item = await this.model.findOneAndUpdate(
+        {userId},
+        { $push: { logs: {waterQuantity: data.waterQuantity} } },
+        { new: true }
+      );
+
+      return item;
+    } catch (errors) {
+      throw errors;
+    }
+  }
+
 }
 
 export default WaterhabitService;

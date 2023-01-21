@@ -8,7 +8,10 @@ const schema = new mongoose.Schema({
   reminderInterval: Number,
   logs: [
     {
-        timestamp: Date,
+        timestamp: {
+          type: Date,
+          default: Date.now,
+        },
         activity: String,
     }
   ],

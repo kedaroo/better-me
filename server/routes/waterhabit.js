@@ -7,6 +7,8 @@ router.route("/user")
     .get(isAuthorized, WaterhabitController.getByUserId)
     .patch(isAuthorized, WaterhabitController.updateByUserId)
 
+router.route("/addlog").patch(isAuthorized, WaterhabitController.addLog)
+
 router
   .route("/:id")
   .get(WaterhabitController.get)

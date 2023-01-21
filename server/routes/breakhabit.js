@@ -8,6 +8,8 @@ router
   .get(isAuthorized, BreakhabitController.getByUserId)
   .patch(isAuthorized, BreakhabitController.updateByUserId);
 
+router.route("/addlog").patch(isAuthorized, BreakhabitController.addLog)
+
 router
   .route("/:id")
   .get(BreakhabitController.get)
