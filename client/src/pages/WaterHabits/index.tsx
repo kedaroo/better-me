@@ -38,6 +38,14 @@ const WaterHabits = () => {
     fetchData();
   }, [user]);
 
+  const decideLogIcon = (quantity: number) => {
+    if (quantity >= goal) {
+      return Tick;
+    } else {
+      return Cross;
+    }
+  };
+
   const handleDailyGoalChange = async (e: any) => {
     setGoal(parseFloat(e.target.value));
     const res = await api.patch(
@@ -97,7 +105,7 @@ const WaterHabits = () => {
             logs.map((logItem) => (
               <LogCard
                 key={logItem._id}
-                icon={Tick}
+                icon={decideLogIcon(logItem.waterQuantity)}
                 leftText={prettifyDate(logItem.timestamp)}
                 rightText={`${logItem.waterQuantity.toString()} L`}
               />
