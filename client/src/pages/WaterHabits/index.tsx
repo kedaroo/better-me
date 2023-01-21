@@ -16,8 +16,8 @@ interface Log {
 }
 
 const WaterHabits = () => {
-  const [goal, setGoal] = useState<number>(0);
-  const [reminderInterval, setReminderInterval] = useState<number>(0);
+  const [goal, setGoal] = useState<string>("0");
+  const [reminderInterval, setReminderInterval] = useState<string>("0");
   const [logs, setLogs] = useState<Array<Log>>([]);
   const { user } = useAuthContext();
 
@@ -27,15 +27,18 @@ const WaterHabits = () => {
         headers: { Authorization: await user?.getIdToken() },
       });
 
-      setGoal(res.data.data.goal);
-      setReminderInterval(res.data.data.reminderInterval);
+      console.log(res.data.data);
+
+      setGoal(res.data.data.goal.toString());
+      setReminderInterval(res.data.data.reminderInterval.toString());
       setLogs(res.data.data.logs);
     };
 
     fetchData();
-  }, [user, goal, reminderInterval]);
+  }, [user]);
 
   const handleDailyGoalChange = async (e: any) => {
+    setGoal(e.target.value);
     const res = await api.patch(
       "waterhabit/user",
       { goal: e.target.value },
@@ -43,10 +46,10 @@ const WaterHabits = () => {
         headers: { Authorization: await user?.getIdToken() },
       }
     );
-    setGoal(e.target.value);
   };
 
   const handleReminderChange = async (e: any) => {
+    setReminderInterval(e.target.value);
     const res = await api.patch(
       "waterhabit/user",
       { reminderInterval: e.target.value },
@@ -54,8 +57,6 @@ const WaterHabits = () => {
         headers: { Authorization: await user?.getIdToken() },
       }
     );
-
-    setReminderInterval(e.target.value);
   };
 
   return (
@@ -68,7 +69,7 @@ const WaterHabits = () => {
             <Card title="Set Daily Goal" goal="I want to drink">
               <input
                 type="number"
-                value={goal.toString()}
+                value={goal}
                 onChange={handleDailyGoalChange}
                 min={1}
               />
@@ -109,6 +110,7 @@ const WaterHabits = () => {
           {logs &&
             logs.map((logItem) => (
               <LogCard
+                key={logItem._id}
                 icon={Tick}
                 leftText={new Date(logItem.timestamp).toDateString()}
                 rightText={logItem.waterQuantity}
