@@ -7,9 +7,14 @@ import Signin from "./pages/Signin";
 import SleepHabits from "./pages/SleepHabits";
 import WaterHabits from "./pages/WaterHabits";
 import { useAuthContext } from "./hooks/useAuthContext";
+import { useEffect } from "react";
 
 function App() {
   const { user, authIsReady } = useAuthContext();
+
+  useEffect(() => {
+    navigator.serviceWorker.register("sw.js");
+  }, [])
 
   return (
     <>
