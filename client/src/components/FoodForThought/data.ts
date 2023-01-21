@@ -30,5 +30,19 @@ export const data = {
       thought: "Avoid screens for at least an hour before bedtime, as the blue light emitted by them can make it harder to fall asleep."
     }
 
+  ],
+  breakHabits: [
+    {
+      emoji: "⌚",
+      thought: "Plan your breaks in advance. Set specific times during the day when you will take a break and stick to that schedule"
+    },
+    {
+      emoji: "🚶‍♀️",
+      thought: "Take a walk outside. Fresh air and nature can help clear your mind and reduce stress. "
+    },
+    {
+      emoji: "🧘‍♂️",
+      thought: "Practice mindfulness. During your breaks, take a few minutes to focus on your breath, and be present in the moment. "
+    }
   ]
 };
