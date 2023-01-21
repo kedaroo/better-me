@@ -4,12 +4,14 @@ import Tick from "../../assets/tick.png";
 import Cross from "../../assets/cross.png";
 import "./index.css";
 import Card from "../../components/Card";
-import FoodForThoughtItem from "../../components/FoodForThoughtItem";
 import LogCard from "../../components/LogCard";
 import api from "../../api";
-import { AuthContextProvider } from "../../context/AuthContext";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import FoodForThought from "../../components/FoodForThought";
+import MeditationIcon from "../../assets/breakHabits/meditation.png";
+import MusicIcon from "../../assets/breakHabits/music.png";
+import WalkingIcon from "../../assets/breakHabits/walking.png";
+import OtherIcon from "../../assets/breakHabits/other.png";
 
 interface Log {
   activity: string;
@@ -34,6 +36,22 @@ const BreakHabits = () => {
 
     fetchData();
   }, [user]);
+
+  const decideActivityIcon = (activity: string) => {
+    switch (activity) {
+      case "meditation":
+        return MeditationIcon;
+
+      case "walking":
+        return WalkingIcon;
+
+      case "music":
+        return MusicIcon;
+
+      default:
+        return OtherIcon;
+    }
+  };
 
   const handleReminderChange = async (e: any) => {
     setReminder(parseFloat(e.target.value));
@@ -79,7 +97,7 @@ const BreakHabits = () => {
             logs.map((logItem) => (
               <LogCard
                 key={logItem._id}
-                icon={Tick}
+                icon={decideActivityIcon(logItem.activity)}
                 leftText={new Date(logItem.timestamp).toDateString()}
                 rightText={logItem.activity}
               />
