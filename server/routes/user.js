@@ -7,12 +7,12 @@ router.route("/login").get(isAuthorized, UserContoller.login);
 
 router.route("/stats").get(isAuthorized, UserContoller.getStats);
 
-router.route("/").get(UserContoller.getAll).post(UserContoller.insert);
+// router.route("/").get(UserContoller.getAll).post(UserContoller.insert);
 
-router
-  .route("/:id")
-  .get(UserContoller.get)
-  .put(UserContoller.update)
-  .delete(UserContoller.delete);
+// router
+//   .route("/:id")
+//   .get(UserContoller.get)
+//   .put(UserContoller.update)
+//   .delete(UserContoller.delete);
 
 export default router;

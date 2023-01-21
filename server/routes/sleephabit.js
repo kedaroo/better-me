@@ -9,10 +9,10 @@ router.route("/user")
 
 router.route("/addlog").patch(isAuthorized, SleephabitController.addLog)
 
-router
-  .route("/:id")
-  .get(SleephabitController.get)
-  .put(SleephabitController.update)
-  .delete(SleephabitController.delete);
+// router
+//   .route("/:id")
+//   .get(SleephabitController.get)
+//   .put(SleephabitController.update)
+//   .delete(SleephabitController.delete);
 
 export default router;
