@@ -7,6 +7,8 @@ router.route("/user")
     .get(isAuthorized, SleephabitController.getByUserId)
     .patch(isAuthorized, SleephabitController.updateByUserId)
 
+router.route("/addlog").patch(isAuthorized, SleephabitController.addLog)
+
 router
   .route("/:id")
   .get(SleephabitController.get)

@@ -38,6 +38,21 @@ class BreakhabitController extends Controller {
         .json({ error: true, message: e.message || "Something went wrong" });
     }
   }
+
+  async addLog(req, res) {
+
+    const userId = req.user._id;
+
+    try {
+      const response = await this.service.addLog(userId, req.body);
+      
+      return res.status(200).json(response);
+    } catch (e) {
+      return res
+        .status(e.statusCode || 500)
+        .json({ error: true, message: e.message || "Something went wrong" });
+    }
+  }
 }
 
 export default new BreakhabitController(breakhabitService);
