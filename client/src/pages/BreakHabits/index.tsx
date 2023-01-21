@@ -9,6 +9,7 @@ import LogCard from "../../components/LogCard";
 import api from "../../api";
 import { AuthContextProvider } from "../../context/AuthContext";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import FoodForThought from "../../components/FoodForThought";
 
 interface Log {
   activity: string;
@@ -69,22 +70,7 @@ const BreakHabits = () => {
             </div>
           </div>
 
-          {/* TODO: Make horizontally scrollable */}
-          <h3>Food for thought</h3>
-          <div className="fft-container">
-            <FoodForThoughtItem>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-              commodi eum rerum neque ut explicabo repudiandae nam earum.
-            </FoodForThoughtItem>
-            <FoodForThoughtItem>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-              commodi eum rerum neque ut explicabo repudiandae nam earum.
-            </FoodForThoughtItem>
-            <FoodForThoughtItem>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-              commodi eum rerum neque ut explicabo repudiandae nam earum.
-            </FoodForThoughtItem>
-          </div>
+          <FoodForThought category="breakHabits" />
         </main>
 
         <aside>
