@@ -38,7 +38,7 @@ class WaterhabitService extends Service {
     try {
       const item = await this.model.findOneAndUpdate(
         {userId},
-        { $push: { logs: {data} } },
+        { $push: { logs: {waterQuantity: data.waterQuantity} } },
         { new: true }
       );
 
