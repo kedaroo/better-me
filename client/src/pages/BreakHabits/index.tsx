@@ -47,8 +47,8 @@ const BreakHabits = () => {
 
         <aside>
           <h2>Break Logs</h2>
-          <LogCard leftText="1 Jan" rightText="3 breaks" />
-          <LogCard leftText="2 Jan" rightText="2 breaks" />
+          {/* <LogCard leftText="1 Jan" rightText="3 breaks" />
+          <LogCard leftText="2 Jan" rightText="2 breaks" /> */}
         </aside>
       </div>
     </SidebarLayout>

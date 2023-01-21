@@ -4,7 +4,7 @@ import "./index.css";
 interface Props {
   icon?: any;
   leftText: string;
-  rightText: string;
+  rightText: number;
 }
 
 const LogCard = ({ icon, leftText, rightText }: Props) => {
@@ -14,7 +14,7 @@ const LogCard = ({ icon, leftText, rightText }: Props) => {
         {icon && <img src={icon} alt="" />}
         <span className="log-date">{leftText}</span>
       </div>
-      <div className="log-value">{rightText}</div>
+      <div className="log-value">{rightText} L</div>
     </div>
   );
 };
