@@ -1,3 +1,54 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  text-align: center;
+}
+
+.form {
+  border: 2px solid black;
+  padding: 2rem 4rem;
+  border-radius: 16px;
+}
+
+.input-container {
+  margin: 2rem 0;
+  font-size: 1.25rem;
+}
+
+.form input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 60px;
+  margin-right: 1rem;
+  color: inherit;
+  text-align: center;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: 1rem auto;
+}
+
+.radio-group > label {
+  margin: 0.5rem 0;
+  font-size: 1.3rem;
+  display: flex;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.form > button {
+  border-radius: 8px;
+  margin-top: 1rem;
+  background: none;
+  padding: 0.5rem 1rem;
+}
+
 .container {
   display: flex;
 }

@@ -6,6 +6,7 @@ import Landing from "./pages/Landing";
 import Signin from "./pages/Signin";
 import SleepHabits from "./pages/SleepHabits";
 import WaterHabits from "./pages/WaterHabits";
+import WaterLogForm from "./pages/WaterHabits/WaterLogForm";
 import { useAuthContext } from "./hooks/useAuthContext";
 import { useEffect } from "react";
 
@@ -41,6 +42,10 @@ function App() {
           <Route
             path="/WaterHabits"
             element={user ? <WaterHabits /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/WaterHabits/addLog"
+            element={user ? <WaterLogForm /> : <Navigate to="/" />}
           />
         </Routes>
       )}
