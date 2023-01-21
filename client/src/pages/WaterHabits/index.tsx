@@ -29,8 +29,8 @@ const WaterHabits = () => {
 
       console.log(res.data.data);
 
-      setGoal(res.data.data.goal.toString());
-      setReminderInterval(res.data.data.reminderInterval.toString());
+      setGoal(res.data.data.goal);
+      setReminderInterval(res.data.data.reminderInterval);
       setLogs(res.data.data.logs);
     };
 
