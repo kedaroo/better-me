@@ -5,7 +5,7 @@
 
 .sidebar-layout > div {
   min-width: 240px;
-  border-right: 1px solid rgb(0, 0, 0);
+  border-right: 1px solid rgb(174, 174, 174);
 }
 
 .sidebar-layout > main {
