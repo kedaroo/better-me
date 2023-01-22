@@ -7,7 +7,7 @@
 }
 
 .home .wrapper div:nth-child(1) {
-  max-width: 900px;
+  max-width: 680px;
 }
 
 .graph-row {
@@ -23,7 +23,7 @@
 .breaks {
   border: 1px solid lightgray;
   background-color: white;
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,12 +34,12 @@
 }
 
 .breaks .break {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .breaks .break span {
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .breaks .start-btn {
@@ -65,16 +65,17 @@
 .avg-sleep-quality {
   border: 1px solid lightgray;
   margin: 0 1rem;
-  margin-top: 6rem;
+  margin-top: 4.5rem;
   text-align: center;
-  padding: 1rem 0.35rem;
+  padding: 1rem 0.6rem;
 }
 
 .avg-sleep-quality .emoji {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .avg-sleep-quality h2 {
+  font-size: 1.25rem;
   margin: 1rem 0;
 }
 
