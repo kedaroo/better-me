@@ -4,6 +4,7 @@ import { spawnNotification } from "../../helpers/notifications";
 import api from "../../api";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import "./index.css";
+import ConsistencyGraph from "./ConsistencyGraph";
 
 interface Props {
   handleStartNotification: () => void;
@@ -29,11 +30,6 @@ const Home = ({
     }
   };
 
-  useEffect(() => {
-    console.log("here")
-    console.log({ appUser, waterHabits, sleepHabits, breakHabits })
-  }, [appUser, waterHabits, sleepHabits, breakHabits])
-
   return (
     <SidebarLayout>
       <div className="home">
@@ -55,7 +51,10 @@ const Home = ({
         </div>
 
         <div className="stats-row">
-
+              <section className="quality-graph">
+                <h2>Your sleep quality: </h2>
+                <ConsistencyGraph progress={sleepHabits?.logs}/>
+              </section>
         </div>
       </div>
       {/* <div>Home</div>
