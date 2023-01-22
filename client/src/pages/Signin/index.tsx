@@ -3,9 +3,16 @@ import GoogleLogo from "../../assets/google.png";
 import "./index.css";
 import Logo from "../../assets/logo.png";
 import { useLogin } from "../../hooks/useLogin";
+import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const SignIn = () => {
+  const { user } = useAuthContext();
+  const navigate = useNavigate();
   const { login, error, isPending } = useLogin();
+  if (user) {
+    navigate("home");
+  }
 
   return (
     <div className="signin">
