@@ -1,0 +1,35 @@
+.landing {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.landing .wrapper {
+    height: fit-content;
+}
+
+.landing img {
+    width: 9rem;
+    display: inline-block;
+}
+
+.landing h1 {
+    margin: 1rem 0 0.5rem 0;
+    font-size: 3.5rem;
+}
+
+.landing .tagline {
+    margin-bottom: 1.5rem;
+    font-size: 1.15rem;
+}
+
+.landing a {
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 3px;
+    padding: 0.5rem 2rem;
+    display: inline-block;
+}
