@@ -2,13 +2,18 @@ import React, { useState } from "react";
 import "./index.css";
 import api from "../../api";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import SuccessModal from "../../components/SuccessModal";
 
 const BreakLogForm = () => {
   const { user } = useAuthContext();
   const [activity, setActivity] = useState<string>("");
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+
+    setLoading(true);
 
     const res = await api.patch(
       "breakhabit/addlog",
@@ -16,7 +21,9 @@ const BreakLogForm = () => {
       { headers: { Authorization: await user.getIdToken() } }
     );
 
-    console.log(`${activity} submited`);
+    setLoading(false);
+    setSuccess(true);
+
   };
 
   return (
@@ -70,8 +77,12 @@ const BreakLogForm = () => {
             Other
           </label>
         </div>
-        <button type="submit">Submit</button>
+        {!loading && <button type="submit">Submit</button>}
+        {loading && <button type="button">Saving...</button>}
       </form>
+      {
+        success && <SuccessModal />
+      }
     </div>
   );
 };
