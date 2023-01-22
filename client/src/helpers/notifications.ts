@@ -7,7 +7,7 @@ export function spawnNotification(
 ) {
   var options = {
     body: theBody,
-    // icon: theIcon,
+    icon: "https://res.cloudinary.com/dqkl3iifo/image/upload/v1674358613/betterme/logo_tamw8k.png",
   };
 
   var notification = new Notification(theTitle, options);
