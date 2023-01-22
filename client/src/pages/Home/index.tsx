@@ -64,7 +64,7 @@ const Home = ({
           </div>
           <div>
             <div className="pie-chart" style={{ width: "270px", margin: "auto" }}>
-              <PieChart />
+              <PieChart progress={breakHabits?.logs}/>
             </div>
             <div className="avg-sleep-quality">
               <p className="emoji">😴</p>

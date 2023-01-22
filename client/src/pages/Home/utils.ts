@@ -62,3 +62,28 @@ export const getAverageSleepQuality = (logs: any) => {
 
   return str;
 }
+
+export const getBreakActivityCount = (logs: any) => {
+
+  let count = {meditation: 0, music: 0, walking: 0, other: 0}
+
+  if(!logs || !logs.length) {
+    return count;
+  }
+
+
+  for(let i = 0; i < logs.length; i++) {
+    console.log(logs[i].activity)
+    if(logs[i].activity === "meditation") {
+      count = {...count, meditation: count.meditation + 1}
+    } else if(logs[i].activity === "music") {
+      count = {...count, music: count.music + 1}
+    } else if(logs[i].activity === "walking") {
+      count = {...count, walking: count.walking + 1}
+    } else {
+      count = {...count, other: count.other + 1}
+    }
+  }
+
+  return count;
+}

@@ -1,15 +1,17 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { useState, useEffect } from "react";
 import { Pie } from "react-chartjs-2";
+import { getBreakActivityCount } from "./utils";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const PieChart = () => {
-  const [count, setCount] = useState({meditation: 4, music: 2, walking: 3, other: 1})
+const PieChart = ({progress}) => {
+  const [count, setCount] = useState({meditation: 0, music: 0, walking: 0, other: 0})
 
   useEffect(() => {
-    
-  }, []);
+    const breakCount = getBreakActivityCount(progress);
+    setCount(breakCount)
+  }, [progress]);
 
   const data = {
     labels: ["Meditation", "Music", "Walking", "Other"],
