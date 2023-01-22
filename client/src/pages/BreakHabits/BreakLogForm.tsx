@@ -3,6 +3,7 @@ import "./index.css";
 import api from "../../api";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import SuccessModal from "../../components/SuccessModal";
+import Confetti from "../../components/Confetti";
 
 const BreakLogForm = () => {
   const { user } = useAuthContext();
@@ -81,7 +82,10 @@ const BreakLogForm = () => {
         {loading && <button type="button">Saving...</button>}
       </form>
       {
-        success && <SuccessModal />
+        success && <>
+        <SuccessModal />
+        <Confetti />
+        </>
       }
     </div>
   );

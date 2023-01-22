@@ -3,6 +3,7 @@ import "./index.css";
 import api from "../../api";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import SuccessModal from "../../components/SuccessModal";
+import Confetti from "../../components/Confetti";
 
 const WaterLogForm = () => {
   const { user } = useAuthContext();
@@ -42,7 +43,10 @@ const WaterLogForm = () => {
         {loading && <button type="button">Saving...</button>}
       </form>
       {
-        success && <SuccessModal />
+        success && <>
+        <Confetti />
+        <SuccessModal />
+        </>
       }
     </div>
   );
