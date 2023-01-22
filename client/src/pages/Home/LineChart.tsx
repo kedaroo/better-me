@@ -41,7 +41,7 @@ export function LineChart({ progress = [] }) {
     labels: ["", "", "", "", "", "", ""],
     datasets: [
       {
-        label: "Water habits analysis",
+        label: "Your Water Intake",
         fill: true,
         data: eyeData,
         borderColor: "rgba(0, 153, 246, 0.5)",
@@ -58,6 +58,7 @@ export function LineChart({ progress = [] }) {
         responsive: true,
         maintainAspectRatio: false,
       }}
+      updateMode="resize"
     />
   );
 }

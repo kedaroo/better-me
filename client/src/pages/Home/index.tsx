@@ -91,7 +91,7 @@ const Home = ({
 
             <div className="avg-sleep-quality">
               <p className="emoji">😴</p>
-              <h2>Average Sleep Quality</h2>
+              <h2>Sleep Quality</h2>
               <p className="stats">
                 {getAverageSleepQuality(sleepHabits?.logs)}
               </p>

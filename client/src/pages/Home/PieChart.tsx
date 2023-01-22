@@ -41,7 +41,16 @@ const PieChart = ({ progress }) => {
     ],
   };
 
-  return <Pie data={data} />;
+  return (
+    <Pie
+      data={data}
+      options={{
+        plugins: {
+          title: { display: true, text: "Your breaktime activities" },
+        },
+      }}
+    />
+  );
 };
 
 export default PieChart;

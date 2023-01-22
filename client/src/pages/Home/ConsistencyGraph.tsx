@@ -6,10 +6,10 @@ const ConsistencyGraph = ({ progress = [] }) => {
 
   useEffect(() => {
     const data = getProgressByDayNumber(progress);
-    let levels = []
+    let levels = [];
     for (var i = 1; i < 365; i++) {
-      const level = Math.floor(data[i]);  
-      levels.push(level)
+      const level = Math.floor(data[i]);
+      levels.push(level);
     }
     setLevelsData(levels);
   }, [progress]);
@@ -26,24 +26,18 @@ const ConsistencyGraph = ({ progress = [] }) => {
           `<li data-level="${level}"></li>`
         );
       }
-    } else  {
+    } else {
       const squares = document.querySelector(".squares");
       squares.innerHTML = "";
       for (let i = 1; i < 365; i++) {
-
-        squares.insertAdjacentHTML(
-          "beforeend",
-          `<li data-level="${0}"></li>`
-        );
+        squares.insertAdjacentHTML("beforeend", `<li data-level="${0}"></li>`);
       }
     }
   }, [progress, levelsData]);
 
   return (
-    <div>
-      <div className="graph">
-        <ul className="squares"></ul>
-      </div>
+    <div className="graph">
+      <ul className="squares"></ul>
     </div>
   );
 };
