@@ -32,3 +32,33 @@ export function getProgressByDayNumber(progress: any) {
 
   return levelsData;
 }
+
+export const getAverageSleepQuality = (logs: any) => {
+
+  if(!logs) {
+    return "0";
+  }
+
+  if(logs.length === 0) {
+    return "0";
+  }
+
+  let sum = 0
+
+  for(let i = 0; i < logs.length; i++) {
+    sum += logs[i].quality;
+  }
+
+  const average = parseInt(sum/logs.length)
+
+  if(average === 0) {
+    return "0"
+  }
+
+  let str = "";
+  for(let i = 0; i < average; i++) {
+    str += "⭐"
+  }
+
+  return str;
+}

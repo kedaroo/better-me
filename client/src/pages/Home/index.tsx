@@ -6,6 +6,8 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 import "./index.css";
 import ConsistencyGraph from "./ConsistencyGraph";
 import { LineChart } from "./LineChart";
+import PieChart from "./PieChart";
+import { getAverageSleepQuality } from "./utils";
 
 interface Props {
   handleStartNotification: () => void;
@@ -50,7 +52,7 @@ const Home = ({
                 {started && <button className="start-btn" disabled>Started</button>}
               </div>
               <div className="line-chart">
-                <LineChart progress={waterHabits?.logs}/>
+                <LineChart progress={waterHabits?.logs} />
               </div>
             </div>
             <div className="stats-row">
@@ -61,7 +63,14 @@ const Home = ({
             </div>
           </div>
           <div>
-            <h2>Stats</h2>
+            <div className="pie-chart" style={{ width: "270px", margin: "auto" }}>
+              <PieChart />
+            </div>
+            <div className="avg-sleep-quality">
+              <p className="emoji">😴</p>
+              <h2>Average Sleep Quality</h2>
+              <p className="stats">{getAverageSleepQuality(sleepHabits?.logs)}</p>
+            </div>
           </div>
         </div>
 
