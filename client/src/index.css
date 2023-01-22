@@ -106,9 +106,9 @@ select {
 
 .card {
   border: 1px solid var(--clr-primary);
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 2rem 1rem;
-  border: 2px solid rgb(0, 0, 0);
+  border: 2px solid rgb(167, 167, 167);
 }
 
 button {
