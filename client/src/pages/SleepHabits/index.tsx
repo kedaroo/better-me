@@ -151,7 +151,9 @@ const SleepHabits = () => {
               How well did you sleep?
             </div>
             <Rating onClick={handleRating} transition={true} size={60} />
-            <button onClick={handleCloseModal}>Submit</button>
+            <button className="modal-button" onClick={handleCloseModal}>
+              Submit
+            </button>
           </div>
         </Modal>
       )}
