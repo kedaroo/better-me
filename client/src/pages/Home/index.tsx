@@ -34,28 +34,33 @@ const Home = ({
     <SidebarLayout>
       <div className="home">
         <h1>Hello {appUser?.name} 👋</h1>
-        <div>
-          <div className="graph-row">
-            <div className="breaks">
+        <div className="wrapper">
+          <div>
+            <div className="graph-row">
+              <div className="breaks">
 
-              <div className="break"><span>Water breaks:</span> {waterHabits?.reminderInterval ? waterHabits.reminderInterval : "1"} hour</div>
-              <div className="break"><span>Work breaks:</span> {breakHabits?.reminderInterval ? breakHabits.reminderInterval : "1"} hour</div>
+                <div className="break"><span>Water breaks:</span> {waterHabits?.reminderInterval ? waterHabits.reminderInterval : "1"} hour</div>
+                <div className="break"><span>Work breaks:</span> {breakHabits?.reminderInterval ? breakHabits.reminderInterval : "1"} hour</div>
 
-              {!started && <button className="start-btn" onClick={() => {
-                handleStartNotification();
-                setStarted(true);
-              }}>Start</button>}
-              {started && <button className="start-btn" disabled>Started</button>}
+                {!started && <button className="start-btn" onClick={() => {
+                  handleStartNotification();
+                  setStarted(true);
+                }}>Start</button>}
+                {started && <button className="start-btn" disabled>Started</button>}
+              </div>
             </div>
+            <div className="stats-row">
+              <section className="quality-graph">
+                <h2>Your sleep quality: </h2>
+                <ConsistencyGraph progress={sleepHabits?.logs} />
+              </section>
+            </div>
+          </div>
+          <div>
+            <h2>Stats</h2>
           </div>
         </div>
 
-        <div className="stats-row">
-              <section className="quality-graph">
-                <h2>Your sleep quality: </h2>
-                <ConsistencyGraph progress={sleepHabits?.logs}/>
-              </section>
-        </div>
       </div>
       {/* <div>Home</div>
       <button onClick={handleStartNotification}>Start Notifications</button>

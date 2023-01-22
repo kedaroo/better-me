@@ -2,6 +2,14 @@
     padding: 2rem;
 }
 
+.home .wrapper {
+    display: flex;
+}
+
+.home .wrapper div:nth-child(1) {
+    max-width: 900px;
+}
+
 .graph-row {
     margin-top: 3rem;
 }
@@ -40,7 +48,7 @@
 }
 
 .quality-graph {
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 .quality-graph h2 {
