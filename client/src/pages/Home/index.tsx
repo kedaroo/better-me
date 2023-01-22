@@ -5,6 +5,7 @@ import api from "../../api";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import "./index.css";
 import ConsistencyGraph from "./ConsistencyGraph";
+import { LineChart } from "./LineChart";
 
 interface Props {
   handleStartNotification: () => void;
@@ -47,6 +48,9 @@ const Home = ({
                   setStarted(true);
                 }}>Start</button>}
                 {started && <button className="start-btn" disabled>Started</button>}
+              </div>
+              <div className="line-chart">
+                <LineChart progress={waterHabits?.logs}/>
               </div>
             </div>
             <div className="stats-row">

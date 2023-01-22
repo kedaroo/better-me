@@ -7,7 +7,6 @@ const ConsistencyGraph = ({ progress = [] }) => {
   useEffect(() => {
     const data = getProgressByDayNumber(progress);
     let levels = []
-    console.log("here, ", progress)
     for (var i = 1; i < 365; i++) {
       const level = Math.floor(data[i]);  
       levels.push(level)

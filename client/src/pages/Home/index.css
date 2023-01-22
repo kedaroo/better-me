@@ -12,6 +12,12 @@
 
 .graph-row {
     margin-top: 3rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.graph-row .line-chart {
+    width: 60%;
 }
 
 .breaks {
