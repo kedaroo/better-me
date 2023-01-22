@@ -44,7 +44,7 @@ function App() {
   const handleStartNotifications = () => {
     console.log(
       `Water notifications registered for ${
-        waterHabits.reminderInterval * 60 * 60
+        waterHabits.reminderInterval * 60 * 60 * 1000
       } secs`
     );
     const waterNotifications = setInterval(
@@ -54,12 +54,12 @@ function App() {
           "Water Break!",
           "http://localhost:5173/WaterHabits/addLog"
         ),
-      waterHabits.reminderInterval * 60 * 60
+        (waterHabits.reminderInterval ? waterHabits.reminderInterval : 1) * 60 * 60 * 1000
     );
 
     console.log(
       `Break notifications registered for ${
-        breakHabits.reminderInterval * 60 * 60
+        breakHabits.reminderInterval * 60 * 60 * 1000
       } secs`
     );
     const breakNotifications = setInterval(() => {
@@ -68,7 +68,7 @@ function App() {
         "Break time!",
         "http://localhost:5173/BreakHabits/addBreak"
       );
-    }, breakHabits.reminderInterval * 60 * 60);
+    }, (breakHabits.reminderInterval ? breakHabits.reminderInterval : 1) * 60 * 60 * 1000);
 
     console.log([waterNotifications, breakNotifications]);
     dispatch({

@@ -1,0 +1,40 @@
+.home {
+    padding: 2rem;
+}
+
+.graph-row {
+    margin-top: 3rem;
+}
+
+.breaks {
+    border: 1px solid lightgray;
+    background-color: white;
+    padding: 1rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    gap: 1rem;
+    height: 30vh;
+}
+
+.breaks .break {
+    font-size: 1.1rem;
+}
+
+.breaks .break span {
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.breaks .start-btn {
+    width: fit-content;
+    background-color: #3b82f6;
+    border: 1px solid #3b82f6;
+    border-radius: 3px;
+    padding: 0.25rem 3rem;
+    color: white;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
