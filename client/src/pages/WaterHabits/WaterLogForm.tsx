@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import "./index.css";
 import api from "../../api";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import SuccessModal from "../../components/SuccessModal";
 
 const WaterLogForm = () => {
   const { user } = useAuthContext();
   const [waterQuantity, setWaterQuantity] = useState<string>("1");
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const res = await api.patch(
       "waterhabit/addlog",
@@ -16,7 +20,8 @@ const WaterLogForm = () => {
       { headers: { Authorization: await user.getIdToken() } }
     );
 
-    console.log(`${waterQuantity} submited`);
+    setSuccess(true);
+    setLoading(false);
   };
 
   return (
@@ -33,8 +38,12 @@ const WaterLogForm = () => {
           />{" "}
           glasses
         </div>
-        <button type="submit">Submit</button>
+        {!loading && <button type="submit">Submit</button>}
+        {loading && <button type="button">Saving...</button>}
       </form>
+      {
+        success && <SuccessModal />
+      }
     </div>
   );
 };
