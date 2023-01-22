@@ -39,7 +39,7 @@ const WaterHabits = () => {
   }, [user]);
 
   const decideLogIcon = (quantity: number) => {
-    if (quantity >= goal) {
+    if (quantity > 1) {
       return Tick;
     } else {
       return Cross;
@@ -107,7 +107,7 @@ const WaterHabits = () => {
                 key={logItem._id}
                 icon={decideLogIcon(logItem.waterQuantity)}
                 leftText={prettifyDate(logItem.timestamp)}
-                rightText={`${logItem.waterQuantity.toString()} L`}
+                rightText={`${logItem.waterQuantity.toString()} 🥛`}
               />
             ))}
         </aside>
