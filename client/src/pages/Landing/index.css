@@ -1,35 +1,86 @@
 .landing {
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .landing .wrapper {
-    height: fit-content;
+  max-width: 1280px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
 }
 
-.landing img {
-    width: 9rem;
-    display: inline-block;
+.top-container {
+  width: 100%;
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .landing h1 {
-    margin: 1rem 0 0.5rem 0;
-    font-size: 3.5rem;
+  margin: 1rem 0 0.5rem 0;
+  font-size: 3.5rem;
 }
 
 .landing .tagline {
-    margin-bottom: 1.5rem;
-    font-size: 1.15rem;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
 }
 
 .landing a {
-    background-color: #3b82f6;
-    color: white;
-    border-radius: 3px;
-    padding: 0.5rem 2rem;
-    display: inline-block;
+  background-color: #000000;
+  color: white;
+  border-radius: 8px;
+  padding: 0.75rem 2rem;
+  display: inline-block;
+  border: 2px solid black;
+  transition: 0.25s all;
+}
+
+.landing a:hover {
+  background-color: white;
+  color: #000000;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.how-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.how-container h2 {
+  font-size: 2rem;
+}
+
+.feature-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border: 2px solid lightgray;
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+.feature-name {
+  font-size: 1.2rem;
+}
+
+.feature-icon {
+  width: 3rem;
+  display: inline-block;
 }
