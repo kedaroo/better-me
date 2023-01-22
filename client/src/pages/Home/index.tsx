@@ -25,7 +25,7 @@ const Home = ({
   breakHabits,
 }: Props) => {
   const { user, notificationIntervals } = useAuthContext();
-  const [started, setStarted] = useState(false)
+  const [started, setStarted] = useState(false);
 
   const handleStopNotification = () => {
     for (let i = 0; i < notificationIntervals.length; i++) {
@@ -38,46 +38,67 @@ const Home = ({
       <div className="home">
         <h1>Hello {appUser?.name} 👋</h1>
         <div className="wrapper">
-          <div>
-            <div className="graph-row">
-              <div className="breaks">
-
-                <div className="break"><span>Water breaks:</span> {waterHabits?.reminderInterval ? waterHabits.reminderInterval : "1"} hour</div>
-                <div className="break"><span>Work breaks:</span> {breakHabits?.reminderInterval ? breakHabits.reminderInterval : "1"} hour</div>
-
-                {!started && <button className="start-btn" onClick={() => {
-                  handleStartNotification();
-                  setStarted(true);
-                }}>Start</button>}
-                {started && <button className="start-btn" disabled>Started</button>}
+          <div className="top-row">
+            <div className="breaks">
+              <div className="break">
+                <span>Water breaks:</span>{" "}
+                {waterHabits?.reminderInterval
+                  ? waterHabits.reminderInterval
+                  : "1"}{" "}
+                hour
               </div>
-              <div className="line-chart">
-                <LineChart progress={waterHabits?.logs} />
+              <div className="break">
+                <span>Work breaks:</span>{" "}
+                {breakHabits?.reminderInterval
+                  ? breakHabits.reminderInterval
+                  : "1"}{" "}
+                hour
               </div>
+
+              {!started && (
+                <button
+                  className="start-btn"
+                  onClick={() => {
+                    handleStartNotification();
+                    setStarted(true);
+                  }}
+                >
+                  Start
+                </button>
+              )}
+              {started && (
+                <button className="start-btn" disabled>
+                  Started
+                </button>
+              )}
             </div>
-            <div className="stats-row">
-              <section className="quality-graph">
-                <h2>Your sleep quality: </h2>
-                <ConsistencyGraph progress={sleepHabits?.logs} />
-              </section>
+            <div className="line-chart">
+              <LineChart progress={waterHabits?.logs} />
+            </div>
+            <div
+              className="pie-chart"
+              style={{ width: "270px", margin: "auto" }}
+            >
+              <PieChart progress={breakHabits?.logs} />
             </div>
           </div>
-          <div>
-            <div className="pie-chart" style={{ width: "270px", margin: "auto" }}>
-              <PieChart progress={breakHabits?.logs}/>
-            </div>
+
+          <div className="stats-row">
+            <section className="quality-graph">
+              <h2>Your sleep quality: </h2>
+              <ConsistencyGraph progress={sleepHabits?.logs} />
+            </section>
+
             <div className="avg-sleep-quality">
               <p className="emoji">😴</p>
               <h2>Average Sleep Quality</h2>
-              <p className="stats">{getAverageSleepQuality(sleepHabits?.logs)}</p>
+              <p className="stats">
+                {getAverageSleepQuality(sleepHabits?.logs)}
+              </p>
             </div>
           </div>
         </div>
-
       </div>
-      {/* <div>Home</div>
-      <button onClick={handleStartNotification}>Start Notifications</button>
-      <button onClick={handleStopNotification}>Stop Notifications</button> */}
     </SidebarLayout>
   );
 };

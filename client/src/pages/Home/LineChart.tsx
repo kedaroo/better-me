@@ -23,18 +23,18 @@ ChartJS.register(
   Filler
 );
 
-export function LineChart({progress = []}) {
+export function LineChart({ progress = [] }) {
   const [eyeData, setEyeData] = useState([0, 0, 0, 0, 0, 0, 0]);
 
   useEffect(() => {
     let arr = [];
-    console.log(progress)
-    for(let i = 0; i <=7; i++) {
-      if(progress[i]?.waterQuantity) {
-        arr.push(progress[i].waterQuantity)
+    console.log(progress);
+    for (let i = 0; i <= 7; i++) {
+      if (progress[i]?.waterQuantity) {
+        arr.push(progress[i].waterQuantity);
       }
     }
-    setEyeData(arr)
+    setEyeData(arr);
   }, [progress]);
 
   const data = {

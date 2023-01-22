@@ -1,34 +1,28 @@
 .home {
-  padding: 2rem;
+  padding: 1.7rem;
 }
 
 .home .wrapper {
+  margin-top: 1rem;
   display: flex;
-}
-
-.home .wrapper div:nth-child(1) {
-  max-width: 680px;
-}
-
-.graph-row {
-  margin-top: 3rem;
-  display: flex;
+  flex-direction: column;
   gap: 2rem;
 }
 
-.graph-row .line-chart {
-  width: 60%;
+.top-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .breaks {
-  border: 1px solid lightgray;
-  background-color: white;
-  padding: 1rem 2rem;
   display: flex;
+  border: 1px solid rgb(174, 174, 174);
+  padding: 1rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: fit-content;
   gap: 1rem;
   height: 30vh;
 }
@@ -53,8 +47,30 @@
   margin-top: 0.5rem;
 }
 
+.top-row .line-chart {
+  flex: 1;
+  /* width: 400px; */
+  align-self: stretch;
+}
+
+.top-row .pie-chart {
+  /* flex: 1; */
+  padding: 0.5rem;
+  /* width: 400px; */
+  align-self: stretch;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
 .quality-graph {
-  margin-top: 3rem;
+  border: 1px solid rgb(174, 174, 174);
+  padding: 1rem;
+  align-self: stretch;
 }
 
 .quality-graph h2 {
@@ -63,11 +79,16 @@
 }
 
 .avg-sleep-quality {
-  border: 1px solid lightgray;
-  margin: 0 1rem;
-  margin-top: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid rgb(174, 174, 174);
+  align-items: center;
   text-align: center;
   padding: 1rem 0.6rem;
+  flex: 1;
+  align-self: stretch;
+  justify-content: space-around;
 }
 
 .avg-sleep-quality .emoji {
@@ -76,7 +97,6 @@
 
 .avg-sleep-quality h2 {
   font-size: 1.25rem;
-  margin: 1rem 0;
 }
 
 .avg-sleep-quality .stats {
@@ -88,7 +108,7 @@
 */
 
 :root {
-  --square-size: 15px;
+  --square-size: 10px;
   --square-gap: 5px;
   --week-width: calc(var(--square-size) + var(--square-gap));
 }
