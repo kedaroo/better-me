@@ -81,9 +81,27 @@ const BreakHabits = () => {
             </Card>
             <div className="mycard">
               <div className="title">Stuff to do in break</div>
-              <a href="https://www.calm.com/" target="_blank" rel="noopener noreferrer">Meditation</a>
-              <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">Music</a>
-              <a href="https://play.google.com/store/apps/details?id=com.relextro.anti.stress.games&hl=en_IN&gl=US&pli=1" target="_blank" rel="noopener noreferrer">Games</a>
+              <a
+                href="https://www.calm.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Meditation 🔗
+              </a>
+              <a
+                href="https://open.spotify.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Music 🔗
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.relextro.anti.stress.games&hl=en_IN&gl=US&pli=1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Games 🔗
+              </a>
             </div>
           </div>
 
