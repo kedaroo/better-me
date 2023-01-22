@@ -3,6 +3,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.blur {
+  z-index: -10;
+  margin-bottom: -4%;
+  margin-left: -2%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  filter: blur(55px);
+  width: 100px;
+}
+
+.red {
+  background-color: rgb(255, 26, 26);
+  width: 120px;
+  height: 100px;
+}
+.green {
+  background-color: rgb(0, 110, 255);
+  width: 80px;
+  height: 80px;
+}
+.yellow {
+  background-color: rgb(255, 255, 0);
+  width: 100px;
+  height: 70px;
 }
 
 .landing .wrapper {
@@ -12,7 +40,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 3rem;
+  gap: 1rem;
 }
 
 .top-container {

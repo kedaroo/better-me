@@ -12,6 +12,11 @@ import "./index.css";
 const Landing = () => {
   return (
     <div className="landing">
+      <div className="blur">
+        <div className="yellow"></div>
+        <div className="green"></div>
+        <div className="red"></div>
+      </div>
       <div className="wrapper">
         <div className="top-container">
           <div className="better-me-con">
