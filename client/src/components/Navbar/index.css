@@ -4,7 +4,7 @@
   font-weight: bold;
 }
 
-.primary-nav > div {
+.primary-nav > a {
   display: flex;
   align-items: center;
   gap: 1rem;
