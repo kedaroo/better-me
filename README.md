@@ -1,6 +1,6 @@
 ## Inspiration 💡
 
-As a team, we were inspired to build the app 'BetterMe' due to our personal experiences with trying to develop and maintain healthy habits. We recognized the importance of self-care and preventative health measures and saw a need for an app that combines tracking multiple aspects of health and wellness in one place. Our goal was to make it easier for people to take control of their health journey by providing a comprehensive solution to track and improve different aspects of health and wellness. Additionally, our desire was to promote healthy habits and lifestyles to a broader audience. With this idea in mind, we built BetterMe, an app to empower people to achieve optimal health by forming healthy habits
+As a team, we were inspired to build the app 'BetterMe' due to our personal experiences with trying to develop and maintain healthy habits. We recognized the importance of self-care and preventative health measures and saw a need for an app that combines tracking multiple aspects of health and wellness in one place. Our goal was to make it easier for people to take control of their health journey by providing a comprehensive solution to track and improve different aspects of health and wellness. Additionally, our desire was to promote healthy habits and lifestyles to a broader audience. With this idea in mind, we built BetterMe, an app to empower people to achieve optimal health by forming healthy habits.
 
 ## **What it does ❓**
 
